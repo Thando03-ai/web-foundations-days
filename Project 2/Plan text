@@ -1,0 +1,99 @@
+100,000
+
+Reads:
+
+Plain Text
+2,000,000/day
+≈20 reads/second
+Peak ≈100 reads/second
+
+Writes:
+
+Plain Text
+200,000/day
+≈2 writes/second
+Peak ≈10 writes/second
+
+Storage:
+
+Plain Text
+1 KB average note
+ 
+200,000 notes/day
+73,000,000 notes/year
+ 
+≈73 GB/year
+Architecture Diagram
+Plain Text
+Users
+|
+DNS
+|
+CDN
+|
+Load Balancer
+|
++-----------+
+| App 1 |
+| App 2 |
++-----------+
+|
+Cache
+|
+Primary DB ------ Read Replica
+|
+Queue
+|
+Worker
+Components
+
+DNS resolves service addresses.
+
+CDN reduces latency.
+
+Load Balancer spreads traffic.
+
+App Servers handle business logic.
+
+Cache reduces database reads.
+
+Primary Database stores writes.
+
+Read Replica scales read traffic.
+
+Queue handles background work.
+
+Worker processes queued jobs.
+
+GET /notes Flow
+Client sends request.
+DNS resolves domain.
+CDN receives request.
+Load balancer selects app server.
+Cache checked.
+If miss, read replica queried.
+Response returned.
+POST /notes Flow
+Client submits note.
+App server validates request.
+Primary database stores note.
+Queue receives notification job.
+Success returned.
+Trade-Offs
+Cache
+
+Pros: Faster responses.
+
+Cons: Possible stale data.
+
+Read Replicas
+
+Pros: More read capacity.
+
+Cons: Replication lag.
+
+Avoiding Single Points of Failure
+Multiple application servers.
+Load balancer.
+Database replication.
+CDN and cache redundancy.
