@@ -1,18 +1,59 @@
-QuickNotes
-Description
-QuickNotes is a note-taking web application demonstrating REST API integration, data modelling and scalable backend architecture design.
+# QuickNotes - System Design (Project 2)
 
-How to Run
-Clone repository
-Open index.html in browser
-Click Load Notes
-Create and delete notes
-Documents
-docs/api-design.md
-docs/data-model.md
-docs/architecture.md
-What I Learned
-How to use GET, POST and DELETE requests with fetch.
-How REST APIs are designed.
-How SQL relationships and indexes work.
-How scalable systems use caches, queues and read replicas.
+
+
+This repository contains the QuickNotes API client and the system
+
+design documents for scaling QuickNotes to 1 million users.
+
+
+
+## API client
+
+
+
+A small page that talks to the JSONPlaceholder practice API:
+
+it loads notes (GET), creates notes (POST) and deletes notes (DELETE),
+
+with loading, success, error and empty states.
+
+
+
+**Run it:** clone the repo, open the folder in VS Code, right-click
+
+`index.html` → **Open with Live Server**.
+
+
+
+Note: JSONPlaceholder is a fake API - created notes are not really
+
+saved on the server (see comments in `api.js`).
+
+
+
+## Design documents
+
+
+
+- [API design](docs/api-design.md)
+
+- [Data model](docs/data-model.md)
+
+- [Architecture](docs/architecture.md)
+
+
+
+## What I Learned
+
+
+
+- How HTTP methods, status codes and JSON work together in a REST API
+
+- How to use fetch with async/await, and why to check response.ok
+
+- How to model users, notes and tags with primary and foreign keys
+
+- Why caching, load balancers and read replicas help a read-heavy app
+
+- That every design decision is a trade-off that should be explained
